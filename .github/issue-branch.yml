@@ -4,3 +4,4 @@
 # copyIssueLabelsToPR: true
 # copyIssueAssigneeToPR: true
 # copyIssueProjectsToPR: true
+openPR: true
