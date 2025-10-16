@@ -3,6 +3,8 @@ name: Create Issue Branch
 on:
   issues:
     types: [opened]
+  pull_request:
+    types: [opened,closed]
 
 jobs:
   create_issue_branch_job:
@@ -15,23 +17,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Echo branch name
         run: echo ${{ steps.Create_Issue_Branch.outputs.branchName }}
-
-# on:
-  # The issues event below is only needed for the default (auto) mode,
-  # you can remove it otherwise
- #  issues:
-  #   types: [ assigned ]
-  # pull_request:
-    # types: [ closed ]
-
-# jobs:
-  # create_issue_branch_job:
-    # runs-on: ubuntu-latest
-    # steps:
-      # - name: Create Issue Branch
-        # id: Create_Issue_Branch
-        # uses: robvanderleek/create-issue-branch@staging
-        # env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Echo branch name
-        # run: echo ${{ steps.Create_Issue_Branch.outputs.branchName }}

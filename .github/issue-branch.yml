@@ -1,11 +1,15 @@
-mode: immediate
-branchName: full
-defaultBranch: 'main'
-autoLinkIssue: true
-autoCloseIssue: false
-createPR: true
+mode: auto
+openDraftPR: true
+conventionalPrTitles: true
+conventionalStyle: semver
+branchName: '${issue.number}-${issue.title}'
+gitSafeReplacementChar: '-'
 branches:
-  - label: enhancement
-    prefix: feature/
-  - label: bug
-    prefix: bugfix/
+  - label: bugfix
+    name: main
+    prefix: 'bugfix/'
+    prTarget: main
+conventionalLabels:
+  fix:
+    bug: '🐛'
+    hotfix: '🚑'
